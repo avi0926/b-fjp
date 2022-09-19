@@ -1,0 +1,112 @@
+//Q-Is-number-prime
+
+import java.util.*;
+
+class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        for(int i=1; i<=n; i++){
+            int num = sc.nextInt(); 
+            
+            boolean flag = false;
+            
+            for(int j=2; j*j<=num; j++){  
+                if(num%j == 0){
+                    flag = true;
+                    break;
+                }
+            }
+            if(flag){
+                System.out.println("not prime");
+            }else{
+                System.out.println("prime");
+            }
+        }
+    }
+}
+
+//Q-print-all-primes-till-n-official
+
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int low = sc.nextInt(); 
+        int high = sc.nextInt();
+        
+        for(int num=low; num<=high; num++){
+            
+            boolean flag = false;
+            
+            for(int j=2; j*j<=num; j++){  
+                if(num%j == 0){
+                    flag = true;
+                    break;
+                }
+            }
+            if(!flag){
+                System.out.println(num);
+            }
+        }
+    }
+}
+
+Q-fibonacci-till-n
+
+import java.util.*;
+
+public class Main {
+
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int num = sc.nextInt();
+    int a = 0;
+    int b = 1;
+    for(int i=1; i<=num; i++){
+        System.out.println(a);
+        int c = a + b;
+        a = b;
+        b = c;
+    }
+  }
+}
+
+Q-count-digits   12345 (ans= 5)
+
+import java.util.*;
+  
+  public class Main{
+  
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int num = sc.nextInt(); 
+    int count = 0;
+    
+    while(num != 0){  // 12345 , 1234 , 123, 12, 1, 0
+        count++; // 1,2,3,4,5
+        num = num/10;
+    }
+    System.out.println(count);
+   }
+  }
+
+Q-reverse-a-number
+import java.util.*;
+   
+public class Main{
+
+public static void main(String[] args) {
+     Scanner sc = new Scanner(System.in);
+     int num = sc.nextInt(); 
+     int rev = 0;
+     while(num != 0){
+        int rem = num%10; 
+        rev = rem + (rev*10);
+        num = num/10;
+     }
+     System.out.println(rev);
+    }
+}
