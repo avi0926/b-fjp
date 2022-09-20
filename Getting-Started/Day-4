@@ -1,0 +1,109 @@
+Q-inverse-of-a-number
+
+//num = 28346751 
+//ans = 73425681
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int num = sc.nextInt();
+        int ans = 0;
+        int idx = 1;
+        
+        while(num != 0){
+            int rem = num%10;
+            ans += idx *(int)Math.pow(10,rem-1);
+            
+            idx++;
+            num /= 10;
+        }
+        System.out.println(ans);
+    }
+}
+
+Q-rotate-a-number
+// ans = 845629
+
+import java.util.*;
+   
+   public class Main{
+   
+   public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+       int num = sc.nextInt(); //562984
+       int k = sc.nextInt(); //2
+       int count = 0; 
+       int n = num;
+       int c = 0; 
+       while(n != 0){
+           c++;
+           n /= 10;
+       }
+
+        k %= c;   
+        
+       if(k < 0){ 
+           k += c;
+       }
+       
+        int rem = num%(int)Math.pow(10,k); //84
+        int remnum = num/(int)Math.pow(10,k); //5629
+        int rm = remnum;
+        while(rm != 0){
+            count++;
+            rm /= 10;
+        }
+        
+        int rotateans = (rem*(int)Math.pow(10,count)) + remnum;
+        
+        System.out.println(rotateans);
+    }
+   }
+ 
+ Q- gcd-and-lcm
+ 
+ import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n1=sc.nextInt(); // 24 
+        int n2=sc.nextInt(); // 36
+        
+        int n = n1;
+        int m = n2; 
+        
+        while(n1%n2 != 0){ 
+            int rem = n1%n2; 
+            n2 = n1; 
+            n1 = rem; 
+        }
+        System.out.println(n1);
+        int lcm = n * m /n1;
+        System.out.println(lcm);
+    }
+}
+
+Q-prime-factorization
+//num = 1440
+//ans = 2	2	2	2	2	3	3	5
+
+import java.util.*;
+
+public class Main{
+
+public static void main(String[] args) {
+  Scanner sc = new Scanner(System.in);
+  int num = sc.nextInt();
+  int n = 2;
+  
+  while(num != 0){ //1440
+      if(num % n == 0){
+          num /= n; //720, 360, 180, 90, 45, 15 ,5, 0
+          System.out.print(n+"\t");
+      }else n++; 
+  }
+ }
+}
