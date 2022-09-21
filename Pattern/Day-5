@@ -1,0 +1,101 @@
+//Q-print-table-of-any-number
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        for(int i=1; i<=10; i++){
+            System.out.println(n+" * "+i+" = "+n*i);
+        }
+    }
+}
+
+*	*	*	  *	*	*	
+*	*				*	*	
+*						*	
+*	*				*	*	
+*	*	*		*	*	*	
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n=scn.nextInt();
+        int str = n/2 + 1;
+        int spc = 1;
+        
+        for(int i=1; i<=n; i++){
+            //star
+            for(int j=1; j<=str; j++){
+                System.out.print("*\t");
+            }
+            //space
+            for(int j=1; j<=spc; j++){
+                System.out.print("\t");
+            }
+            //star
+            for(int j=1; j<=str; j++){
+                System.out.print("*\t");
+            }
+            System.out.println();
+            if(i<=n/2){
+                str--;
+                spc += 2;
+            }else{
+                str++;
+                spc -= 2;
+            }
+        }
+
+    }
+}
+
+    1	
+	2	3	2	
+3	4	5	4	3	
+	2	3	2	
+		1	
+
+import java.util.*;
+
+public class Main {
+
+  public static void main(String[] args) {
+    Scanner scn = new Scanner(System.in);
+    int n = scn.nextInt();
+    
+    int spc = n/2; //2
+    int str = 1;
+    int val = 1;
+    
+    for (int i = 1; i<=n; i++){ //5
+    
+        //space
+        for(int j=1; j<=spc; j++){
+            System.out.print("\t");
+        }
+        //star
+        int cval = val;
+        for(int j=1; j<=str; j++){
+            System.out.print(cval+"\t");
+            if(j<=str/2) cval++;
+            else cval--;
+        }
+        if(i<=n/2){
+            str += 2;
+            spc--;
+            val++;
+        }else{
+            str -= 2;
+            spc++;
+            val--;
+        }
+        System.out.println();
+    }
+  }
+}
