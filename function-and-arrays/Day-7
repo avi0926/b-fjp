@@ -1,0 +1,144 @@
+//Q-Bar-char
+
+//n = 5
+//arr[] = 3 1 0 7 5
+
+      *		
+			*		
+			*	*	
+			*	*	
+*			*	*	
+*			*	*	
+*	*		*	*	
+
+import java.io.*;
+import java.util.*;
+
+public class Main{
+
+public static void main(String[] args) throws Exception {
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int[] arr = new int[n]; // 3,1,0,7,5
+    for(int i=0; i<arr.length; i++){
+        arr[i] = sc.nextInt();
+    }
+    int m = Integer.MIN_VALUE;
+    for(int i=0; i<arr.length; i++){
+        if(arr[i]>m){
+            m = arr[i];
+        }
+    }
+    int max = m; //7
+    for(int i=0; i<m; i++){
+        for(int j=0; j<arr.length; j++){
+            if(arr[j] < max) System.out.print("\t");
+            else System.out.print("*\t");
+        }
+        System.out.println();
+        max--;
+    }
+ }
+}
+//////////////////////////////////////////////////////////////////////////////////
+
+//Q-Inverted bar chart
+//n = 5
+//arr[] = 3 1 0 7 5
+
+*	*		*	*	
+*			*	*	
+*			*	*	
+			*	*	
+			*	*	
+			*		
+			*	
+      
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+  public static void main(String[] args) throws Exception {
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int[] arr = new int[n]; // 3,1,0,7,5
+    for(int i=0; i<arr.length; i++){
+        arr[i] = sc.nextInt();
+    }
+    int m = Integer.MIN_VALUE;
+    for(int i=0; i<arr.length; i++){
+        if(arr[i]>m){
+            m = arr[i];
+        }
+    }
+    int max = m;
+    for(int i=0; i<max; i++){
+        for(int j=0; j<arr.length; j++){
+            if(arr[j] != 0){
+                System.out.print("*\t");
+                arr[j] = arr[j] - 1;
+            }
+            else System.out.print("\t");
+        }
+        System.out.println();
+    }
+  }
+}
+
+//Sum of two array
+
+import java.io.*;
+import java.util.*;
+
+public class Main{
+
+public static void main(String[] args) throws Exception {
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int[] arr1 = new int[n]; //9,8,6,5,7,8 =6
+    for(int i=0; i<arr1.length; i++){
+        arr1[i] = sc.nextInt();
+    }
+    int m = sc.nextInt();
+    int[] arr2 = new int[m]; //1,2,1,3,3 =5
+    for(int i=0; i<arr2.length; i++){
+        arr2[i] = sc.nextInt();
+    }
+    //ternary operator
+    int k = arr1.length>arr1.length ? arr1.length : arr2.length;
+    int[] arr3 = new int[k];
+    int arr1len = arr1.length - 1;
+    int arr2len = arr2.length - 1;
+    int arr3len = arr3.length - 1;
+    int carry = 0;
+    //arr3 = {0,8,7,1,1}
+    
+    //8,6,5,7,8
+    //2,2,1,3,3
+    
+    for(int i=0; i<arr3.length; i++){
+        
+        int val = carry + ((arr1len < 0) ? 0 : arr1[arr1len]) + ((arr2len < 0) ? 0 : arr2[arr2len]); //11
+        
+        if(val > 9){
+            int rem = val%10; //1
+            carry = val/10; //1
+            arr3[arr3len] = rem;
+        }
+        else {
+            arr3[arr3len] = val;
+            carry = 0;
+        }
+        arr1len--;
+        arr2len--;
+        arr3len--;
+    }
+    if(carry != 0){
+        System.out.println(carry);
+    }
+    for(int i=0; i<arr3.length; i++){
+        System.out.println(arr3[i]);
+    }
+ }
+}
