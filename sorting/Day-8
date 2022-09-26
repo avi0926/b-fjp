@@ -1,0 +1,93 @@
+//Bubble-Sort
+
+import java.util.*;
+
+class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];      
+        for(int i=0; i<arr.length; i++){
+            arr[i] = sc.nextInt();
+        }
+        //Bubble-Sort
+        for(int i=0; i<arr.length; i++){
+            for(int j=0; j<arr.length-1-i; j++){
+                if(arr[j] > arr[j+1]){
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+        for(int i=0; i<arr.length; i++){
+            System.out.println(arr[i]);
+        }
+    }
+}
+
+//Selection-Sort
+
+import java.util.*;
+
+class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n]; //2,4,5,7      
+        for(int i=0; i<arr.length; i++){
+            arr[i] = sc.nextInt();
+        }
+        //Selection-Sort
+        for(int i=0; i<arr.length; i++){
+            int l = Integer.MAX_VALUE; 
+            int idx = 0;
+            
+            for(int j=i; j<arr.length; j++){
+                if(arr[j] < l) {
+                    l = arr[j]; 
+                    idx = j; 
+                }
+            }
+            //swap
+            int temp = arr[i]; 
+            arr[i] = l; 
+            arr[idx] = temp;
+        }
+        for(int i=0; i<arr.length; i++){
+            System.out.println(arr[i]);
+        }
+    }
+}
+
+
+//Insertion-Sort
+
+import java.util.*;
+
+class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n]; //2,4,5,7
+        for(int i=0; i<arr.length; i++){
+            arr[i] = sc.nextInt();
+        }
+        //Insertion-Sort
+        for(int i=1; i<arr.length; i++){
+            for(int j = i; j > 0; j--){
+                if(arr[j] < arr[j-1]){
+                    int temp = arr[j]; 
+                    arr[j] = arr[j-1];
+                    arr[j-1] = temp;
+                }else{
+                    break;
+                }
+            }
+        }
+        
+        for(int i=0; i<arr.length; i++){
+            System.out.println(arr[i]);
+        }
+    }
+}
