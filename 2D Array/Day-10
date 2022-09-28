@@ -1,0 +1,122 @@
+    0 1 2
+    -----
+0-  1 2 3
+1-  4 5 6
+2-  7 8 9
+
+//2D Array
+
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int row = sc.nextInt(); //3
+        int col = sc.nextInt(); //3
+        
+        int[][] arr = new int[row][col]; //creating 2D array
+        
+        for(int i=0; i<row; i++){
+            for(int j=0; j<col; j++){
+                arr[i][j] = sc.nextInt();
+            }
+        }
+        for(int i=0; i<row; i++){
+            for(int j=0; j<col; j++){
+                System.out.print(arr[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+//Matrix multiplication
+
+import java.io.*;
+import java.util.*;
+
+public class Main{
+
+public static void main(String[] args) throws Exception {
+    Scanner sc = new Scanner(System.in);
+    
+    int row1 = sc.nextInt();
+    int col1 = sc.nextInt();
+    int[][] arr1 = new int[row1][col1];
+    for(int i=0; i<row1; i++){
+        for(int j=0; j<col1; j++){
+            arr1[i][j] = sc.nextInt();
+        }
+    }
+    
+    int row2 = sc.nextInt();
+    int col2 = sc.nextInt();
+    int[][] arr2 = new int[row2][col2];
+    for(int i=0; i<row2; i++){
+        for(int j=0; j<col2; j++){
+            arr2[i][j] = sc.nextInt();
+        }
+    }
+    
+    if(col1 == row2){
+        int[][] arr3 = new int[row1][col2];
+        
+        for(int i=0; i<row1; i++){
+            for(int k=0 ;k<col2; k++){
+                for(int j=0; j<col1; j++){
+                    arr3[i][k] += arr1[i][j]*arr2[j][k];
+                }
+            }
+        }
+        
+        for(int i=0; i<row1; i++){
+            for(int j=0; j<col2; j++){
+                System.out.print(arr3[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }else{
+        System.out.println("Invalid input");
+    }
+ }
+}
+
+//Q-Wakanda-1
+
+1  2  3
+4  5  6
+7  8  9
+
+//Path followed by traveler: 1->4->7->8->5->2->3->6->9
+
+import java.io.*;
+import java.util.*;
+
+public class Main{
+
+public static void main(String[] args) throws Exception {
+    Scanner sc = new Scanner(System.in);
+    int row = sc.nextInt(); //3
+    int col = sc.nextInt(); //3
+    
+    int[][] arr = new int[row][col]; //creating 2D array
+    
+    for(int i=0; i<row; i++){
+        for(int j=0; j<col; j++){
+            arr[i][j] = sc.nextInt();
+        }
+    }
+    
+    for(int i=0; i<col; i++){
+        if(i%2 == 0){
+            for(int j=0; j<row; j++){
+                System.out.println(arr[j][i]+" ");
+            }
+        }else{
+            for(int j=row-1; j>=0; j--){
+                System.out.println(arr[j][i]+" ");
+            }
+        }
+    }
+ }
+}
