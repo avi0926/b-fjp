@@ -1,0 +1,144 @@
+--Sample Input
+abccbc
+
+--Sample Output
+a
+b
+bccb
+c
+cc
+ccbc
+c
+cbc
+b
+c
+
+Q-Print All Palindromic Substrings
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    
+  public static boolean IsPalindrome(String str){ //abc
+      int i=0;
+      int j = str.length() - 1;
+      while(i<j){
+          if(str.charAt(i) == str.charAt(j)){
+              i++; 
+              j--; 
+          }else{
+              return false;
+          }
+      }
+      return true;
+  }
+    
+	public static void solution(String str){
+		for(int i=0; i<str.length(); i++){
+		    for(int j=i+1; j<=str.length(); j++){
+		        String st = str.substring(i,j);
+		        if(IsPalindrome(st) == true){
+		            System.out.println(st);
+		        }
+		    }
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner scn = new Scanner(System.in);
+		String str = scn.next(); //abccdc
+		solution(str);
+	}   
+}
+
+Q-String Compression
+
+--Sample Input
+wwwwaaadexxxxxx
+
+--Sample Output
+wadex
+w4a3dex6
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+	public static String compression1(String str){
+		String st = ""+str.charAt(0); 
+		for(int i=1; i<str.length(); i++){
+		    char prev = st.charAt(st.length() - 1); 
+		    char curr = str.charAt(i);
+		    if(prev != curr){
+		        st = st + "" +curr;
+		    }
+		}
+		return st;
+	}
+
+	public static String compression2(String str){
+		String st = ""+str.charAt(0); 
+		int count  = 1;
+		for(int i=1; i<str.length(); i++){
+		    char prev = st.charAt(st.length() - 1);  
+		    char curr = str.charAt(i); 
+		    if(prev != curr){
+		        if(count > 1){
+		            st = st + "" + count+ "" +curr ;
+		        }else{
+    		        st = st +"" +curr ;
+		        }
+		        count = 1;
+		    }else if(prev == curr){
+		        count++; 
+		    }
+		}
+		if(count > 1){
+		    st = st + "" + count ;
+		}
+		return st;
+	}
+	public static void main(String[] args) {
+		Scanner scn = new Scanner(System.in);
+		String str = scn.next();
+		System.out.println(compression1(str));
+		System.out.println(compression2(str));
+	}
+}
+
+Q-Toggle Case
+
+--Sample Input
+pepCODinG
+
+--Sample Output
+PEPcodINg
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+	public static String toggleCase(String str){ 
+		StringBuilder sb = new StringBuilder(); 
+		
+		for(int i=0; i<str.length(); i++){
+		    char ch = str.charAt(i); 
+		    String chr = ""+str.charAt(i); 
+		    if(ch >='a' && ch <='z'){
+		        sb.append(chr.toUpperCase());
+		    }else{
+		        sb.append(chr.toLowerCase());
+		    }
+		}
+		return sb.toString();
+	}
+	
+	public static void main(String[] args) {
+		Scanner scn = new Scanner(System.in);
+		String str = scn.next(); 
+		System.out.println(toggleCase(str));
+	}
+}
