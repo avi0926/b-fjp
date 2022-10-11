@@ -1,0 +1,96 @@
+
+
+Q - Print All Permutations Of A String Iteratively
+----------------------------------------------------
+
+--Sample Input
+abc
+
+--Sample Output
+abc
+bac
+cab
+acb
+bca
+cba
+
+-----------------------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static int factorial(String str){
+        int len = str.length(); 
+        int fact = 1;
+        while(len != 0){
+            fact *= len; 
+            len--; 
+        }
+        return fact;
+    }
+    
+	public static void solution(String str){
+		int fact = factorial(str);
+		for(int i=0; i<fact; i++){
+		    StringBuilder sb = new StringBuilder(str); 
+		    int num = i; 
+		    int len = str.length(); 
+		    while(len >= 1){
+		        
+		        int ques = num / len; 
+		        int rem = num % len; 
+		        
+		        num = ques; 
+		        
+		        //StringBuilder ch = sb.deleteCharAt(rem); 
+		        System.out.print(sb.charAt(rem));
+		        sb.deleteCharAt(rem);
+		        
+		        len--; 
+		    }
+		    System.out.println();
+		}
+	}
+	public static void main(String[] args) {
+		Scanner scn = new Scanner(System.in);
+		String str = scn.next(); 
+		solution(str);
+	}
+}
+
+Q - String With Difference Of Every Two Consecutive Characters
+----------------------------------------------------------------
+
+--Sample Input
+pepCODinG
+
+--Sample Output
+p-11e11p-45C12O-11D37i5n-39G
+
+-----------------------------------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+	public static String solution(String str){ 
+	    StringBuilder sb = new StringBuilder(); 
+	    sb.append(str.charAt(0));
+	    for(int i=1; i<str.length(); i++){
+	        char prev = str.charAt(i-1);
+	        char curr = str.charAt(i);
+	        
+	        int gap = curr - prev;
+	        
+	        sb.append(gap);
+	        sb.append(curr);
+	    }
+	    return sb.toString();
+	}
+	public static void main(String[] args) {
+		Scanner scn = new Scanner(System.in);
+		String str = scn.next(); //abecd
+		System.out.println(solution(str));
+	}
+}
