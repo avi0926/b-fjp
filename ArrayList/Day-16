@@ -72,5 +72,4 @@ public class Main {
 		solution(al);
 		System.out.println(al);
 	}
-
 }
