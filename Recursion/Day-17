@@ -1,0 +1,132 @@
+Q - Print Decreasing
+------------------------------
+Sample Input
+5
+
+Sample Output
+5
+4
+3
+2
+1
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        printDecreasing(n);
+    }
+
+    public static void printDecreasing(int n){
+        if(n == 0){
+           return; 
+        }
+        System.out.println(n);
+        printDecreasing(n-1);
+    }
+
+}
+
+Q - Print Increasing
+--------------------------------
+Sample Input
+5
+Sample Output
+1
+2
+3
+4
+5
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        printIncreasing(n);
+    }
+
+    public static void printIncreasing(int n){
+        if(n == 0){
+            return;
+        }
+        printIncreasing(n - 1);   
+        System.out.println(n);  
+    }
+}
+
+Q - Print Increasing Decreasing
+---------------------------------------
+Sample Input
+3
+Sample Output
+3
+2
+1
+1
+2
+3
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        pdi(n);
+    }
+
+    public static void pdi(int n){
+        
+        if(n == 0){
+            return;
+        }
+        
+        System.out.println(n);
+        pdi(n - 1);   
+        System.out.println(n);
+    }
+}
+
+Q - Power-linear
+-----------------------
+Sample Input
+2
+5
+Sample Output
+32
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        
+        int powlin = power(n,m);
+        System.out.println(powlin);
+    }
+
+    public static int power(int x, int n){
+        if(n==0){
+            return 1;
+        }
+        
+        int ekkamkaans = power(x, n-1);
+        int ans = x * ekkamkaans;
+        
+        return ans;
+    }
+}
