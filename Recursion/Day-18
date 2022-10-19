@@ -1,0 +1,104 @@
+Q - Factorial
+----------------------
+Sample Input
+5
+Sample Output
+120
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int fact = factorial(n);
+        System.out.println(fact);
+    }
+
+    public static int factorial(int n){ 
+        if(n == 1){
+            return 1;
+        }
+        
+        int aage = factorial(n-1);
+        int fact = n * aage;
+        
+        return fact;
+    }
+
+}
+
+
+Q - Power-logarithmic
+-----------------------
+Sample Input
+2
+5
+Sample Output
+32
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        
+        int powlin = power(n,m);
+        System.out.println(powlin);
+    }
+
+    public static int power(int x, int n){
+        if(n == 0){
+            return 1;
+        }
+        
+        int ansOfHalf = power(x,n/2);
+        int ans = ansOfHalf * ansOfHalf; 
+        
+        if(n%2 !=  0)
+        {
+            ans = x * ans;
+        }
+        
+        return ans;
+        
+    }
+
+}
+
+
+Q - Print Zigzag
+---------------------
+Sample Input
+3
+Sample Output
+3 2 1 1 1 2 1 1 1 2 3 2 1 1 1 2 1 1 1 2 3
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        pzz(n);
+    }
+
+    public static void pzz(int n){
+        if(n == 0){
+            return;
+        }
+        System.out.print(n+" ");
+        pzz(n-1);
+        System.out.print(n+" ");
+        pzz(n-1);
+        System.out.print(n+" ");
+    }
+}
