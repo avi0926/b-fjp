@@ -1,0 +1,37 @@
+public class Main
+{
+    static class Person{
+        int age;
+        String name;
+        
+        void saysHi(){
+            System.out.println(this.name + "[" + this.age + "] says hi.");
+        }
+    }
+    
+	public static void main(String[] args) {
+		Person p1 = new Person();
+		p1.age = 10;
+		p1.name = "A";
+		p1.saysHi();
+		
+		Person p2 = new Person();
+		p2.age = 20;
+		p2.name = "B";
+		p2.saysHi();
+		
+		Person p3 = p2;
+		p3.saysHi();
+		p2.name = "C";
+		p2.saysHi();
+		p3.saysHi();
+	}
+}
+
+Output-
+------------------------------
+A[10] says hi.
+B[20] says hi.
+B[20] says hi.
+C[20] says hi.
+C[20] says hi.
