@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next(); //abc
+        ArrayList<String> ansList = gss(str); //["", "c", "b", "bc", "a", "ac", "ab", "abc"];
+        System.out.println(ansList);
+    }
+    public static ArrayList<String> gss(String str) {
+        if(str.length() == 0){
+            ArrayList<String> base = new ArrayList<>();
+            base.add("");
+            return base;
+        }
+        char ch = str.charAt(0);
+        String resStr = str.substring(1); //bc
+        ArrayList<String> ansList = gss(resStr); //["", "c", "b", "bc"]
+        ArrayList<String> finalList = new ArrayList<>(); //[]
+        for(String list : ansList){
+            finalList.add(list); //["","c","b","bc"]
+        }
+        for(String list : ansList){
+            finalList.add(ch + list); //["", "c", "b", "bc", "a", "ac", "ab", "abc"]
+        }
+        return finalList;
+    }
+}
