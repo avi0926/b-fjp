@@ -1,0 +1,51 @@
+Q-Print Maze Path-
+------------------------------
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        ArrayList<String> ansList = getMazePaths(0,0,n-1,m-1);
+        System.out.println(ansList);
+    }
+
+    public static ArrayList<String> getMazePaths(int sr, int sc, int dr, int dc) {
+        
+        if(sr == dr && sc == dc){
+            ArrayList<String> res = new ArrayList<>();
+            res.add("");
+            return res;
+        }
+        if((sr == dr + 1) || (sc == dc + 1)){
+            ArrayList<String> res = new ArrayList<>();
+            return res;
+        }
+     
+        ArrayList<String> hPath = getMazePaths(sr, sc + 1, dr, dc);
+        ArrayList<String> vPath = getMazePaths(sr+1, sc, dr, dc);
+        
+        ArrayList<String> ansList = new ArrayList<String>();
+        
+        for(String str : hPath){
+            ansList.add('h'+str);
+        }
+        
+        for(String str : vPath){
+            ansList.add('v'+str);
+        }
+        return ansList;
+    }
+}
+
+Input-
+------------
+row = 3
+col = 3
+Output-
+------------
+[hhvv, hvhv, hvvh, vhhv, vhvh, vvhh]
